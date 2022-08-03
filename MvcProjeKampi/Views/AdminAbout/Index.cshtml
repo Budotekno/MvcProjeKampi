@@ -1,0 +1,88 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="card-title">Hakkımızda Listesi</h1>
+            </div>
+
+
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<button class="btn btn-success" data-toggle="modal" data-target="#modalEkle">Yeni Ekle</button>
+<br />
+<br />
+
+
+<!-- Main content -->
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card">
+
+        <div class="card-body p-0">
+            <table class="table table-striped projects">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Detay 1</th>
+                        <th>Detay 2</th>
+                        <th>Fotoğraf 1</th>
+                        <th>Fotoğraf 2</th>
+                        <th>Aktif Yap</th>
+                        <th>Pasip Yap</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var i in Model)
+                    {
+
+                    <tr>
+                        <th>@i.AboutId</th>
+                        <td>@i.AboutDetails1</td>
+                        <td>@i.AboutDetails2</td>
+                        <td>@i.AboutDetails2</td>
+                        <td>@i.AboutDetails2</td>
+                        <td>
+                            <a href="#" class="btn btn-success">Aktif Yap</a>
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-danger">Pasif Yap</a>
+                        </td>
+
+
+
+
+
+
+
+                    </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+
+@Html.Action("AboutPartial","AdminAbout")
